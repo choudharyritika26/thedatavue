@@ -13,8 +13,8 @@
             <div class="row gx-0 align-items-center" style="height: 45px;">
                 <div class="col-lg-8 text-center text-lg-start mb-lg-0">
                     <div class="d-flex flex-wrap">
-                        <a href="#" class="text-muted me-4"><i
-                                class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                        {{-- <a href="#" class="text-muted me-4"><i
+                                class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a> --}}
                         <a href="#" class="text-muted me-4"><i
                                 class="fas fa-phone-alt text-primary me-2"></i>+91 7307269991</a>
                         <a href="#" class="text-muted me-0"><i
@@ -41,13 +41,13 @@
 
     <!-- Navbar & Hero Start -->
     <div class="container-fluid sticky-top px-0">
-        <div class="position-absolute bg-dark" style="left: 0; top: 0; width: 100%; height: 100%;">
+        <div class="position-absolute bg-dark" >
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-white py-3 px-4">
-                    <a href="index.html" class="navbar-brand p-0">
+                    <a href="#" class="navbar-brand p-0">
                         {{-- <h2 class="text-primary m-0"  style=" font-family:'Trirong', serif";><i class="fas fa-donate me-3"></i>TheDataVue</h2> --}}
-                        <img src="{{ 'frontend/img/logo1.png' }}" style="height:50px; width:200px" alt="Logo"> 
+                        <img src="{{ 'frontend/img/logo1.png' }}" style="height:60px; width:150px" alt="Logo"> 
                     </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -58,7 +58,7 @@
                         <a href="{{route('frontend.index')}}" class="nav-item nav-link ">Home</a>
                         <a href="{{route('frontend.about')}}" class="nav-item nav-link">About</a>
                         <a href="{{route('frontend.service')}}" class="nav-item nav-link">Services</a>
-                        <a href="#" class="nav-item nav-link">Protfolio</a>
+                        <a href="#" class="nav-item nav-link">Portfolio</a>
                         <a href="{{route('frontend.faq')}}" class="nav-item nav-link">FAQs</a>
                         {{-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -75,9 +75,9 @@
                     <div class="d-flex align-items-center flex-nowrap pt-xl-0">
                         {{-- <button class="btn btn-primary btn-md-square mx-2" data-bs-toggle="modal"
                             data-bs-target="#searchModal"><i class="fas fa-search"></i></button> --}}
-                        <a href="#"
+                        {{-- <a href="#"
                             class="btn btn-primary rounded-pill text-white py-2 px-4 ms-2 flex-wrap flex-sm-shrink-0">Start
-                            Investa</a>
+                            Investa</a> --}}
                     </div>
                 </div>
             </nav>

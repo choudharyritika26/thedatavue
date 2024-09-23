@@ -73,7 +73,7 @@
 }
 
 .btn.btn-primary {
-    background: var(--bs-red) !important;
+    background: var(--bs-danger) !important;
     color: var(--bs-white) !important;
     font-family: 'Roboto', sans-serif;
     border: none;
@@ -101,7 +101,7 @@
 }
 
 .btn.btn-light {
-    background: var(--bs-red) !important;
+    background: var(--bs-danger) !important;
     color: var(--bs-white) !important;
     font-family: 'Roboto', sans-serif;
     border: none;
@@ -119,18 +119,18 @@
     background: var(--bs-dark) !important;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .topbar {
         display: none;    
     }
-}
+} */
 /*** Topbar End ***/
 
 /*** Navbar ***/
-.sticky-top,
+/* .sticky-top,
 .sticky-top .container {
     transition: 0.5s !important;
-}
+} */
 
 .navbar .navbar-nav .nav-item.nav-link,
 .navbar .navbar-nav .nav-link {
@@ -148,7 +148,7 @@
     content: "";
     width: 0;
     height: 0;
-    border: 0px solid var(--bs-primary);
+    border: 0px solid var(--bs-danger);
     transition: 0.5s;
 }
 
@@ -173,7 +173,7 @@
 .navbar .navbar-nav .nav-link.active,
 .sticky-top .navbar .navbar-nav .nav-link:hover,
 .sticky-top .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary) !important;
+    color: var(--bs-danger) !important;
 }
 
 .navbar .dropdown-toggle::after {
@@ -207,12 +207,12 @@
     }
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
     .navbar .navbar-nav .nav-item.nav-link {
         margin: 15px 0 !important;
     }
 
-}
+} */
 
 .dropdown .dropdown-menu a:hover {
     background: var(--bs-primary) !important;
@@ -474,7 +474,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: var(--bs-red);
+    background: var(--bs-danger);
 }
 /*** About End ***/
 
@@ -551,12 +551,12 @@
 }
 
 .service .service-item:hover .service-content .service-content-inner a.h4 {
-    color: var(--bs-white) !important;
+    color: var(--bs-danger) !important;
     transition: 0.5s;
 }
 
 .service .service-item:hover .service-content .service-content-inner a.h4:hover {
-    color: var(--bs-primary) !important;
+    color: var(--bs-danger) !important;
 }
 /*** Service End ***/
 
@@ -731,7 +731,7 @@
     left: 0;
     border-radius: 10px;
     border: 1px solid;
-    border-color: var(--bs-red) transparent transparent var(--bs-red) !important;
+    border-color: var(--bs-danger) transparent transparent var(--bs-danger) !important;
     z-index: 5;
     transition: 1s;
     opacity: 0;
@@ -746,7 +746,7 @@
     right: 0;
     border-radius: 10px;
     border: 1px solid;
-    border-color: transparent var(--bs-red) var(--bs-red) transparent !important;
+    border-color: transparent var(--bs-danger) var(--bs-danger) transparent !important;
     z-index: 5;
     transition: 1s;
     opacity: 0;
@@ -773,7 +773,7 @@
     left: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background: rgba(68, 210, 246, 0.2);
+    background: rgba(235, 6, 43, 0.38);
     transition: 0.5s;
 }
 
@@ -811,7 +811,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: var(--bs-red) !important;
+    background: var(--bs-danger) !important;
     transition: 0.5s;
 }
 
@@ -824,7 +824,7 @@
     right: 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background: var(--bs-red) !important;
+    background: var(--bs-danger) !important;
     transition: 0.5s;
 }
 
@@ -873,14 +873,14 @@
     width: 15px;
     height: 15px;
     background: var(--bs-light);
-    border: 1px solid var(--bs-primary);
+    border: 1px solid var(--bs-red);
     border-radius: 10px;
     transition: 0.5s;
 }
 
 .testimonial .testimonial-carousel .owl-dot.active {
     width: 40px;
-    background: var(--bs-primary);
+    background: var(--bs-danger);
 }
 /*** Testimonial End ***/
 
@@ -939,7 +939,7 @@
 }
 
 .footer .footer-item-post a:hover {
-    color: var(--bs-primary) !important;
+    color: var(--bs-danger) !important;
 }
 
 .footer .footer-item-post .footer-btn a {
@@ -953,7 +953,7 @@
 
 /*** copyright Start ***/
 .copyright {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(134, 30, 30, 0.08);
     background: var(--bs-dark) !important;
 }
 /*** copyright end ***/
