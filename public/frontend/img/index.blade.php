@@ -10,16 +10,55 @@
             <div class="header-carousel-item-img-1">
                 <img src="{{ 'frontend/img/carousel-1.jpg' }}" class="img-fluid w-100" alt="Image">
             </div>
+            {{-- <div class="carousel-caption">
+                <div class="carousel-caption-inner text-start p-3">
+                    <h1 class="display-1 text-capitalize text-white mb-4 fadeInUp animate__animated"
+                        data-animation="fadeInUp" data-delay="1.3s" style="animation-delay: 1.3s;">The most
+                        prestigious Investments company in worldwide.</h1>
+                    <p class="mb-5 fs-5 fadeInUp animate__animated" data-animation="fadeInUp" data-delay="1.5s"
+                        style="animation-delay: 1.5s;">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    </p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mb-4 me-4 fadeInUp animate__animated"
+                        data-animation="fadeInUp" data-delay="1.5s" style="animation-delay: 1.7s;"
+                        href="#">Apply Now</a>
+                    <a class="btn btn-dark rounded-pill py-3 px-5 mb-4 fadeInUp animate__animated"
+                        data-animation="fadeInUp" data-delay="1.5s" style="animation-delay: 1.7s;"
+                        href="#">Read More</a>
+                </div>
+            </div> --}}
         </div>
         <div class="header-carousel-item mx-auto">
             <div class="header-carousel-item-img-2">
                 <img src="{{ 'frontend/img/carousel-2.jpg' }}" class="img-fluid w-100" alt="Image">
             </div>
+            {{-- <div class="carousel-caption">
+                <div class="carousel-caption-inner text-center p-3">
+                    <h1 class="display-1 text-capitalize text-white mb-4">The most prestigious Investments company in
+                        worldwide.</h1>
+                    <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    </p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mb-4 me-4" href="#">Apply Now</a>
+                    <a class="btn btn-dark rounded-pill py-3 px-5 mb-4" href="#">Read More</a>
+                </div>
+            </div> --}}
         </div>
         <div class="header-carousel-item">
             <div class="header-carousel-item-img-3">
                 <img src="{{ 'frontend/img/carousel-3.jpg' }}" class="img-fluid w-100" alt="Image">
             </div>
+            {{-- <div class="carousel-caption">
+                <div class="carousel-caption-inner text-end p-3">
+                    <h1 class="display-1 text-capitalize text-white mb-4">The most prestigious Investments company in
+                        worldwide.</h1>
+                    <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    </p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mb-4 me-4" href="#">Apply Now</a>
+                    <a class="btn btn-dark rounded-pill py-3 px-5 mb-4" href="#">Read More</a>
+                </div>
+            </div> --}}
         </div>
     </div>
     <!-- Carousel End -->
@@ -42,7 +81,7 @@
                 </div>
                 <div class="col-lg-4 col-xl-6 wow fadeInRight" data-wow-delay="0.3s">
                     {{-- <h4 class="text-primary">About Us</h4> --}}
-                    <h5 class="display-5 mb-4">Who We Are</h5>
+                    <h1 class="display-5 mb-4">Who We Are</h1>
                     <p class="text ps-4 mb-4">TheDataVue Technologies is a Himachal (India) based company with a wealth of
                         experience in Mobile & Web Application Development, Health IT Solutions, Security, Accountability &
                         Tracking, and Healthcare Domains.is a Himachal Pradesh based company with a wealth of experience in
@@ -480,7 +519,7 @@
         <div class="container pb-5">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                 <h1 class="text-primary">Our Team</h4>
-                    <h4>Our Company Dedicated Team Member</h4>
+                    <h4>Our Company Dedicated Team Member</h44>
                         {{-- <h6 class="display-4">Our Investa Company Dedicated Team Member</h6> --}}
             </div>
             <div class="row g-4 justify-content-center">
@@ -601,7 +640,7 @@
                 <div class="col-xl-4 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="h-100 rounded">
                         <h4 class="text-primary">Our Feedbacks </h4>
-                        <h4 class="display-4 mb-4">What Our Client Say</h4>
+                        <h1 class="display-4 mb-4">What Our Client Say</h1>
                         {{-- <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum atque soluta
                             unde itaque. Consequatur quam odit blanditiis harum veritatis porro.</p> --}}
                         {{-- <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Read All Reviews
@@ -709,7 +748,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="pb-5">
-                        <h3 class="text-primary">FAQs</h3>
+                        <h4 class="text-primary">FAQs</h4>
                         <h3 class="display-4">We are providing good services to our clients.</h3>
                     </div>
                     <div class="accordion bg-light rounded p-4" id="accordionExample">

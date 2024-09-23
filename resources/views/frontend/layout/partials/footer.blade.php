@@ -5,8 +5,8 @@
             <div class="col-lg-5 col-md-6 ">
                 <div class="footer-item d-flex flex-column">
                     <div class="footer-item">
-                        <h4 class="text-white mb-4">Newsletter</h4>
-                        <p class="mb-3">
+                        <h4 class="text-white mb-4"> <img src="{{ 'frontend/img/logo1.png' }}" style="height:50px; width:200px" alt="Logo"> </h4>
+                        <p class="mb-3" style="color: black">
                             TheDataVue Technologies is a Himachal (India) based company with a wealth of experience in
                             Mobile & Web Application Development, Health IT Solutions, Security, Accountability &
                             Tracking, and Healthcare Domains.</p>
@@ -21,25 +21,25 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item d-flex flex-column">
-                    <h4 class="text-white mb-4">Useful Links</h4>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Home</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Services</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Latest Projects</a>
-                    {{-- <a href="#"><i class="fas fa-angle-right me-2"></i> testimonial</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Our Team</a> --}}
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+                    <h4 class="text-dark mb-4">Useful Links</h4>
+                    <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> Home</a>
+                    <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> Services</a>
+                    <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> About Us</a>
+                    <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> Latest Projects</a>
+                    {{-- <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> testimonial</a>
+                    <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> Our Team</a> --}}
+                    <a href="#" style="color: black"><i class="fas fa-angle-right me-2" style="color: black"></i> Contact Us</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item d-flex flex-column">
-                    <h4 class="text-white mb-4">Contact Us</h4>
-                    <p> Ground Floor, Ward, No. 4, Nangal Rd,
+                    <h4 class="text-dark mb-4">Contact Us</h4>
+                    <p style="color: black"> Ground Floor, Ward, No. 4, Nangal Rd,
                         opp. Dell Showroom and Jagat Hospital, Una, Himachal Pradesh 174303</p>
                     {{-- <a href=""><i class="fa fa-map-marker-alt me-2"></i> Ground Floor, Ward, No. 4, Nangal Rd,
                         opp. Dell Showroom and Jagat Hospital, Una, Himachal Pradesh 174303</a> --}}
-                    <a href=""><i class="fas fa-envelope "></i> info@thedatavue.com</a>
-                    <a href=""><i class="fas fa-phone me-2"></i>  +91 7307269991</a>
+                    <a href="" style="color: black"><i class="fas fa-envelope "></i> info@thedatavue.com</a>
+                    <a href="" style="color: black"><i class="fas fa-phone me-2"></i>  +91 7307269991</a>
                     <div class="d-flex align-items-center ">
                         <a class="btn btn-light btn-md-square me-2" href="https://www.facebook.com/TheDataVueTechnologies/" target="-blank" title="facebook""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-light btn-md-square me-2" href="https://www.instagram.com/thedatavue/"  target="-blank" ><i class="fab fa-instagram"></i></a>
