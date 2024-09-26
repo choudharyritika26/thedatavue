@@ -19,8 +19,8 @@ class PortfolioController extends Controller
         //dd($imageName);
 
         $validatedData = $request->validate([
-            'heading' => 'required',
-            'description' => 'required',
+            //'heading' => 'required',
+            //'description' => 'required',
             'image'=> 'required|mimes:jpeg,jpg,png,gif|max:10000',
            
         ]);

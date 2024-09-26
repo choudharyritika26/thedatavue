@@ -47,7 +47,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-white py-3 px-4">
                     <a href="#" class="navbar-brand p-0">
                         {{-- <h2 class="text-primary m-0"  style=" font-family:'Trirong', serif";><i class="fas fa-donate me-3"></i>TheDataVue</h2> --}}
-                        <img src="{{ 'frontend/img/logo1.png' }}" style="height:60px; width:150px" alt="Logo"> 
+                        <img src="{{ 'frontend/img/logo5.png' }}" style="height:50px; " alt="Logo"> 
                     </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">

@@ -29,9 +29,9 @@
                         {{-- <img src="{{ 'frontend/img/about-2.jpg' }}" class="img-fluid w-100 rounded-bottom" alt="Image"> --}}
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-6 wow fadeInRight" data-wow-delay="0.3s">
-                    <h4 class="text-primary">About Us</h4>
-                    <h1 class="display-5 mb-4">Who We Are</h1>
+                <div class="col-lg-4 col-xl-6 wow fadeInRight" data-wow-delay="0.3s">
+                    {{-- <h4 class="text-primary">About Us</h4> --}}
+                    <h5 class="text-danger">Who We Are</h5>
                     <p class="text ps-4 mb-4">TheDataVue Technologies is a Himachal (India) based company with a wealth of
                         experience in Mobile & Web Application Development, Health IT Solutions, Security, Accountability &
                         Tracking, and Healthcare Domains.is a Himachal Pradesh based company with a wealth of experience in
@@ -40,7 +40,7 @@
                         dedicate team of experts from multiple domains such as software engineers, business analysts and
                         mobile developers for android and iOS.
                     </p>
-                    <h1 class="display-5 mb-4">Our Mission</h1>
+                    <h5 class="text-danger">Our Mission</h5>
                     <p class="text ps-4 mb-4">Our vision is to be the most admired company in the eyes of our global
                         customers by understanding their rapidly changing requirements and delivering world class solutions,
                         products and services consistently.
@@ -132,13 +132,15 @@
     <div class="container-fluid project">
         <div class="container mt-4">
             <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                <h4 class="text-primary">What We Do</h4>
-                <h1 class="display-4">Explore Our Latest Projects</h1>
+                <h1 class="text-danger  ">What We Do</h4>
+                    <h4>Explore Our Latest Projects</h4>
+                        {{-- <h6 class="display-4">Our Investa Company Dedicated Team Member</h6> --}}
             </div>
+
             <div class="project-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
                 <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="project-img">
-                        <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image">
+                        {{-- <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image"> --}}
                     </div>
                     <div class="project-content bg-light rounded p-4">
                         <div class="project-content-inner">
@@ -154,7 +156,7 @@
                 </div>
                 <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="project-img">
-                        <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image">
+                        {{-- <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image"> --}}
                     </div>
                     <div class="project-content bg-light rounded p-4">
                         <div class="project-content-inner">
@@ -172,7 +174,7 @@
 
                 <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="project-img">
-                        <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image">
+                        {{-- <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image"> --}}
                     </div>
                     <div class="project-content bg-light rounded p-4">
                         <div class="project-content-inner">
@@ -188,7 +190,7 @@
                 </div>
                 <div class="project-item h-100">
                     <div class="project-img">
-                        <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image">
+                        {{-- <img src="{{ 'frontend/img/projects-1.jpg' }}" class="img-fluid w-100 rounded" alt="Image"> --}}
                     </div>
                     <div class="project-content bg-light rounded p-4">
                         <div class="project-content-inner">

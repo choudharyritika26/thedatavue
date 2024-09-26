@@ -33,23 +33,28 @@
 
             </div>
             <div class="row g-5 align-items-center">
+                @foreach ($about as $aboutus)
+                    
+               
                 <div class="col-lg-6 col-xl-5 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="about-img">
-                        <img src="{{ 'frontend/img/hero-img.png' }}" style="height: 500px"
+                        <img src="{{ asset('storage/' . $aboutus->image) }}" style="height: 400px"
                             class="img-fluid w-100 rounded-top bg-white" alt="Image">
                         {{-- <img src="{{ 'frontend/img/about-2.jpg' }}" class="img-fluid w-100 rounded-bottom" alt="Image"> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-6 wow fadeInRight" data-wow-delay="0.3s">
                     {{-- <h4 class="text-primary">About Us</h4> --}}
-                    <h5 class="text-danger">Who We Are</h5>
-                    <p class="text ps-4 mb-4">TheDataVue Technologies is a Himachal (India) based company with a wealth of
+                    <h5 class="text-danger">{{$aboutus->heading}}</h5>
+                    <p class="text ps-4 mb-4">
+                        {{-- TheDataVue Technologies is a Himachal (India) based company with a wealth of
                         experience in Mobile & Web Application Development, Health IT Solutions, Security, Accountability &
                         Tracking, and Healthcare Domains.is a Himachal Pradesh based company with a wealth of experience in
                         Mobile & Web Application Development, Website Development and Designing and UI/UX designing. We
                         provide timely, cost-effective, innovative solutions using cutting edge tools & technologies, and a
                         dedicate team of experts from multiple domains such as software engineers, business analysts and
-                        mobile developers for android and iOS.
+                        mobile developers for android and iOS. --}}
+                        {!! html_entity_decode($aboutus->description) !!}
                     </p>
                     <a class="btn btn-primary rounded-pill py-3 px-5 mb-4 me-4" href="{{ route('frontend.about') }}">Read
                         More</a>
@@ -128,6 +133,7 @@
                         </div>
                     </div> --}}
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -145,26 +151,30 @@
                 {{-- <h1 class="display-4"> Offering the Best Consulting & Investa Services</h1> --}}
             </div>
             <div class="row g-4 justify-content-center text-center">
+                @foreach ($services as $services)
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-light rounded">
                         <div class="service-img">
-                            <img src="{{ 'frontend/img/services/website.jpg' }}" style="height: 180px"
+                            <img src="{{ asset('storage/' . $services->image) }}" style="height: 180px"
                                 class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="service-content text-center p-4">
                             <div class="service-content-inner">
-                                <a href="#" class="h4 mb-4 d-inline-flex text-danger">Web -
-                                        Development</a>
-                                <p class="mb-4">Web development refers to the creating, building, and maintaining of
+                                <a href="#" class="h4 mb-4 d-inline-flex text-danger">
+                                    {{$services->heading}}</a>
+                                {{-- <p class="mb-4">Web development refers to the creating, building, and maintaining of
                                     websites. It includes aspects such as web design, web publishing, web programming, and
-                                    database management.
+                                    database management. --}}
+                                    {!! html_entity_decode($services->description) !!}
                                 </p>
                                 <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                @endforeach
+
+                {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-light rounded">
                         <div class="service-img">
                             <img src="{{ 'frontend/img/services/mobile.jpg' }}" style="height: 180px"
@@ -220,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 {{-- <div class="col-12">
                     <a class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s"
                         href="#">Services More</a>
@@ -331,21 +341,24 @@
                 <h1 class="display-4">Latest Articles & News from the Blogs</h1> 
             </div> --}}
             <div class="row g-4 justify-content-center">
+                @foreach ($portfolio as $portfolio)
+
                 <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="blog-item bg-light rounded p-4 "
                         style="background-image: url({{ 'frontend/img/bg.png' }});">
                         <div class="project-img">
-                            <img src="{{ 'frontend/img/portfolio/android.jpg' }}" style="height: 200px"
+                            <img src="{{ asset('storage/' . $portfolio->image) }}" style="height: 200px"
                                 class="img-fluid w-100 rounded" alt="Image">
                             <div class="blog-plus-icon">
-                                <a href="{{ 'frontend/img/portfolio/android.jpg' }}" data-lightbox="blog-1"
+                                <a href="{{ asset('storage/' . $portfolio->image) }}" data-lightbox="blog-1"
                                     class="btn btn-primary btn-md-square rounded-pill"><i
                                         class="fas fa-plus fa-1x"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                @endforeach
+                {{-- <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="blog-item bg-light rounded p-4"
                         style="background-image: url({{ 'frontend/img/bg.png' }});">
                         <div class="project-img">
@@ -372,16 +385,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
-        <div class="container pb-5 ">
+        {{-- <div class="container pb-5 "> --}}
             {{-- <div class="text-center mx-auto pb-5 wow fadeInUp " data-wow-delay="0.1s" style="max-width: 800px;"> --}}
                 {{-- <h1 class="text-primary "> Portfolio</h1> --}}
                 {{-- <h1 class="display-4">Latest Articles & News from the Blogs</h1> --}}
             {{-- </div> --}}
-            <div class="row g-4 justify-content-center">
+            {{-- <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="blog-item bg-light rounded p-4"
                         style="background-image: url({{ 'frontend/img/bg.png' }});">
@@ -424,13 +437,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="container pb-5 ">
-                <div class="text-center mx-auto pb-5 wow fadeInUp " data-wow-delay="0.1s" style="max-width: 800px;">
+            {{-- <div class="container pb-5 ">
+                <div class="text-center mx-auto pb-5 wow fadeInUp " data-wow-delay="0.1s" style="max-width: 800px;"> --}}
                     {{-- <h1 class="text-primary "> Portfolio</h1> --}}
                     {{-- <h1 class="display-4">Latest Articles & News from the Blogs</h1> --}}
-                </div>
+                {{-- </div>
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="blog-item bg-light rounded p-4"
@@ -474,7 +487,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -490,21 +503,24 @@
                         {{-- <h6 class="display-4">Our Investa Company Dedicated Team Member</h6> --}}
             </div>
             <div class="row g-4 justify-content-center">
+                @foreach ($team as $team)
+
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item rounded">
                         <div class="team-img">
-                            <img src="{{ 'frontend/img/team-1.jpg' }}" class="img-fluid w-100 rounded-top"
+                            <img src="{{ asset('storage/' . $team->image) }}" class="img-fluid w-100 rounded-top"
                                 alt="Image">
                         </div>
                         <div class="team-content bg-dark text-center rounded-bottom p-4">
                             <div class="team-content-inner rounded-bottom">
-                                <h4 class="text-danger">Mark D. Brock</h4>
-                                <p class="text-white mb-0">CEO & Founder</p>
+                                <h4 class="text-danger"> {{$team->heading}}</h4>
+                                <p class="text-white mb-0"> {{$team->post}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                @endforeach
+                {{-- <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item rounded">
                         <div class="team-img">
                             <img src="{{ 'frontend/img/team-2.jpg' }}" class="img-fluid w-100 rounded-top"
@@ -545,7 +561,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -662,6 +678,67 @@
     <!-- Testimonial End -->
 
 
+    {{-- =================================work on it============= --}}
+    <!-- Project Start -->
+    <div class="container-fluid project mt-4">
+        <div class="container mt-4">
+
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h1 class="text-danger   mt-4">Our Clients</h4>
+                    <h4>Explore Our Latest Projects</h4>
+                        {{-- <h6 class="display-4">Our Investa Company Dedicated Team Member</h6> --}}
+            </div>
+            {{-- <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                <h4 class="text-primary">Our Clients</h4> --}}
+                {{-- <h1 class="display-4">Explore Our Latest Projects</h1> --}}
+            {{-- </div> --}}
+
+            <div class="project-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
+                {{-- <div class="row-lg-6 row-xl-5 wow fadeInLeft "> --}}
+                <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-img">
+                        <img src="{{ 'frontend/img/project/logo6.jpg' }}" class="img-fluid w-100 rounded"
+                            alt="Image">
+                    </div>
+                </div>
+                <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-img">
+                        <img src="{{ 'frontend/img/project/logo7.jpg' }}" class="img-fluid w-100 rounded"
+                            alt="Image">
+                    </div>
+                </div>
+                <div class="project-item h-100">
+                    <div class="project-img">
+                        <img src="{{ 'frontend/img/project/logo8.jpg' }}" class="img-fluid w-100 rounded"
+                            alt="Image">
+                    </div>
+                </div>
+                <div class="project-item h-100">
+                    <div class="project-img">
+                        <img src="{{ 'frontend/img/project/logo9.jpg' }}" class="img-fluid w-100 rounded"
+                            alt="Image">
+                    </div>
+                </div>
+                <div class="project-item h-100">
+                    <div class="project-img">
+                        <img src="{{ 'frontend/img/project/logo10.jpg' }}" class="img-fluid w-100 rounded"
+                            alt="Image">
+                    </div>
+                </div>
+                <div class="project-item h-100">
+                    <div class="project-img">
+                        <img src="{{ 'frontend/img/project/logo11.jpg' }}" class="img-fluid w-100 rounded"
+                            alt="Image">
+                    </div>
+                </div>
+                {{-- </div> --}}
+
+            </div>
+        </div>
+    </div>
+    <!-- Project End -->
+
+
     <!-- FAQ Start -->
     <div class="container-fluid faq py-5">
         <div class="container py-5">
@@ -763,94 +840,6 @@
         </div>
     </div>
     <!-- FAQ End -->
-    
-{{-- =================================work on it============= --}}
-    <!-- Project Start -->
-    <div class="container-fluid project">
-        <div class="container">
-
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                <h1 class="text-danger  ">Our Clients</h4>
-                    <h4>Explore Our Latest Projects</h4>
-                        {{-- <h6 class="display-4">Our Investa Company Dedicated Team Member</h6> --}}
-            </div>
-            {{-- <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Clients</h4> --}}
-                {{-- <h1 class="display-4">Explore Our Latest Projects</h1> --}}
-            {{-- </div> --}}
-
-            <div class="project-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
-                {{-- <div class="row-lg-6 row-xl-5 wow fadeInLeft "> --}}
-                <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="project-img">
-                        <img src="{{ 'frontend/img/project/logo6.jpg' }}" class="img-fluid w-100 rounded"
-                            alt="Image">
-                    </div>
-                </div>
-                <div class="project-item h-100 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="project-img">
-                        <img src="{{ 'frontend/img/project/logo7.jpg' }}" class="img-fluid w-100 rounded"
-                            alt="Image">
-                    </div>
-                </div>
-                <div class="project-item h-100">
-                    <div class="project-img">
-                        <img src="{{ 'frontend/img/project/logo8.jpg' }}" class="img-fluid w-100 rounded"
-                            alt="Image">
-                    </div>
-                </div>
-                <div class="project-item h-100">
-                    <div class="project-img">
-                        <img src="{{ 'frontend/img/project/logo9.jpg' }}" class="img-fluid w-100 rounded"
-                            alt="Image">
-                    </div>
-                </div>
-                <div class="project-item h-100">
-                    <div class="project-img">
-                        <img src="{{ 'frontend/img/project/logo10.jpg' }}" class="img-fluid w-100 rounded"
-                            alt="Image">
-                    </div>
-                </div>
-                <div class="project-item h-100">
-                    <div class="project-img">
-                        <img src="{{ 'frontend/img/project/logo11.jpg' }}" class="img-fluid w-100 rounded"
-                            alt="Image">
-                    </div>
-                </div>
-                {{-- </div> --}}
-
-            </div>
-        </div>
-    </div>
-    <!-- Project End -->
-
-
-
-
-    {{-- <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-6 text-center text-md-danger mb-md-0">
-                    <span class="text-body"><a href="#" class="border-bottom text-primary"><i
-                                class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right
-                        reserved.</span>
-                </div>
-                <div class="col-md-6 text-center text-md-end text-body">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/--> --}}
-    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-    {{-- Designed By <a class="border-bottom text-primary" href="https://htmlcodex.com">HTML Codex</a>
-                    Distributed By <a class="border-bottom text-primary" href="https://themewagon.com">ThemeWagon</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a> --}}
 @endsection
 @section('scripts')
 @endsection

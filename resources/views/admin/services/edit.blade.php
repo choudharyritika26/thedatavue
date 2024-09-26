@@ -42,7 +42,7 @@
 
                                 <div class="form-group">
                                     <label for="comment">Description</label>
-                                    <textarea class="form-control" id="comment" name="description" rows="3">{{ $services->description }} </textarea>
+                                    <textarea class="form-control" id="comment" name="description" rows="3">{!! html_entity_decode($services->description) !!} </textarea>
                                     <script src="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.umd.js"></script>
 
                                     <script>

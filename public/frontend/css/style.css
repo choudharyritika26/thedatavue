@@ -231,7 +231,7 @@
 .navbar .navbar-toggler {
     padding: 8px 15px;
     color: var(--bs-dark);
-    background: var(--bs-primary);
+    background: var(--bs-danger);
 }
 
 #searchModal .modal-content {
@@ -609,7 +609,7 @@
     bottom: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 45px rgba(46, 27, 27, 0.08);
 }
 
 .project .project-carousel .project-item .project-content::after {
@@ -632,7 +632,7 @@
 .project .project-carousel .project-item:hover .project-content .project-content-inner p,
 .project .project-carousel .project-item:hover .project-content .project-content-inner a.h4,
 .project .project-carousel .project-item:hover .project-content .project-content-inner .project-icon i {
-    color: var(--bs-white) !important;
+    color: var(--bs-danger) !important;
     transition: 0.5s;
 }
 
@@ -916,7 +916,7 @@
 
 /*** Footer Start ***/
 .footer {
-    background:#bec1c4;
+    background:#e2e2e5;
     
 }
 .footer .footer-item a {

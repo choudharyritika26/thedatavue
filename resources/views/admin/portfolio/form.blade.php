@@ -36,17 +36,17 @@
                 <div class="col-12">
                   <label for="heading" class="form-label">Heading</label>
                   <input type="text" class="form-control" name="heading" id="heading">
-                  @if ($errors->has('heading'))
+                  {{-- @if ($errors->has('heading'))
                   <span class="text-danger">{{$errors->first('heading')}}</span>
-                  @endif
+                  @endif --}}
                 </div>
 
                 <div class="form-group">
                   <label for="comment">Description</label>
                   <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
-                  @if ($errors->has('description'))
+                  {{-- @if ($errors->has('description'))
                       <span class="text-danger">{{$errors->first('description')}}</span>
-                      @endif
+                      @endif --}}
               </div>
                 <div class="col-12">
                   <label for="image" class="form-label">Image</label>

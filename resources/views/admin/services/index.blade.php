@@ -44,7 +44,7 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->heading }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            <td>{!! html_entity_decode($item->description) !!}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}" alt=""
                                                     class="img-fluid" style="width: 200px; height:150px;">
