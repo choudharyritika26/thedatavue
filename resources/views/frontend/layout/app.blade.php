@@ -8,16 +8,22 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-     <!-- CSRF Token -->
-     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-     <title>The Data Vue</title>
+    <title>The Data Vue</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     @include('frontend.layout.partials.style')
 
     @yield('styles')
+    <style>
+        /* =====================footer==================== */
+        .footer {
+            background: #e2e2e5;
+        }
+    </style>
 
-    
+
 </head>
 
 <body>

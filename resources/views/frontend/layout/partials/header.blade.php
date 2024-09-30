@@ -58,6 +58,8 @@
                         <a href="{{route('frontend.index')}}" class="nav-item nav-link ">Home</a>
                         <a href="{{route('frontend.about')}}" class="nav-item nav-link">About</a>
                         <a href="{{route('frontend.service')}}" class="nav-item nav-link">Services</a>
+                        <a href="{{route('frontend.training')}}" class="nav-item nav-link">Training</a>
+                        <a href="#" class="nav-item nav-link">Career</a>
                         <a href="#" class="nav-item nav-link">Portfolio</a>
                         <a href="{{route('frontend.faq')}}" class="nav-item nav-link">FAQs</a>
                         {{-- <div class="nav-item dropdown">

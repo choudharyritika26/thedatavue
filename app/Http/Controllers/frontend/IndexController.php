@@ -36,5 +36,8 @@ class IndexController extends Controller
         return view('frontend.contact');
     }
 
+    public function training(){
+        return view('frontend.training');
+    }
     
 }

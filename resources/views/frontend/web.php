@@ -8,7 +8,6 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TeamController;
-use App\Http\Controllers\ContactUsDetalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +32,6 @@ Route::get('/about', [App\Http\Controllers\frontend\IndexController::class,'abou
 Route::get('/faq', [App\Http\Controllers\frontend\IndexController::class,'faq'])->name('frontend.faq');
 
 Route::get('/service', [App\Http\Controllers\frontend\IndexController::class,'service'])->name('frontend.service');
-
-Route::get('/training', [App\Http\Controllers\frontend\IndexController::class,'training'])->name('frontend.training');
 
 Route::get('/contact', [App\Http\Controllers\frontend\IndexController::class,'contact'])->name('frontend.contact');
 
@@ -106,13 +103,6 @@ Route::post('/store-client', [App\Http\Controllers\admin\ClientController::class
 Route::get('/client-index', [App\Http\Controllers\admin\ClientController::class,'index'])->name('client-index');
 Route::get('/edit-client/{id}', [App\Http\Controllers\admin\ClientController::class,'edit'])->name('edit-client');
 Route::post('/update-client/{id}', [App\Http\Controllers\admin\ClientController::class,'update'])->name('update-client');
-Route::delete('/delete-client/{id}', [App\Http\Controllers\admin\ClientController::class,'destroy'])->name('destroy-client');});
+Route::delete('/delete-client/{id}', [App\Http\Controllers\admin\ClientController::class,'destroy'])->name('destroy-client');
 
-//==========================Team crud=================================
-
-Route::get('/add-contactus', [App\Http\Controllers\admin\ContactUsDetalesController::class,'create'])->name('add-contactus');
-Route::post('/store-contactus', [App\Http\Controllers\admin\ContactUsDetalesController::class,'store'])->name('store-contactus');
-Route::get('/contactus-index', [App\Http\Controllers\admin\ContactUsDetalesController::class,'index'])->name('contactus-index');
-Route::get('/edit-contactus/{id}', [App\Http\Controllers\admin\ContactUsDetalesController::class,'edit'])->name('edit-contactus');
-Route::post('/update-contactus/{id}', [App\Http\Controllers\admin\ContactUsDetalesController::class,'update'])->name('update-contactus');
-Route::delete('/delete-contactus/{id}', [App\Http\Controllers\admin\ContactUsDetalesController::class,'destroy'])->name('destroy-contactus');
+});
