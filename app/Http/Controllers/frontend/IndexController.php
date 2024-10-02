@@ -8,36 +8,44 @@ use App\Models\About;
 use App\Models\Services;
 use App\Models\Portfolio;
 use App\Models\Team;
+use App\Models\ContactUsDetales;
 
 class IndexController extends Controller
 {
-    public function index(){
+    public function index(){   
         $about = About::where('is_active',1)->get();
         $services = Services::all();
         $portfolio = Portfolio::all();
         $team = Team::all();
-        return view('frontend.index',compact('about','services','portfolio','team'));
+        $contact_us_detales = contactusdetales ::all();
+        return view('frontend.index',compact('about','services','portfolio','team','contact_us_detales'));
     }
 
     public function about(){
         $about = About::where('is_active',1)->get();
-        return view('frontend.about',compact('about'));
+        $contact_us_detales = contactusdetales ::all();
+        return view('frontend.about',compact('about','contact_us_detales'));
     }
      
     public function faq(){
-        return view('frontend.faq');
+        $contact_us_detales = contactusdetales::all();
+        // dd($contact_us_detales);
+        return view('frontend.faq',compact('contact_us_detales'));
     }
 
     public function service(){
-        return view('frontend.service');
+        $contact_us_detales = contactusdetales ::all();
+        return view('frontend.service',compact('contact_us_detales'));
     }
 
     public function contact(){
-        return view('frontend.contact');
+        $contact_us_detales = contactusdetales ::all();
+        return view('frontend.contact',compact('contact_us_detales'));
     }
 
     public function training(){
-        return view('frontend.training');
+        $contact_us_detales = contactusdetales ::all();
+        return view('frontend.training',compact('contact_us_detales'));
     }
     
 }

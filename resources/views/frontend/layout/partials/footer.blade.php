@@ -33,16 +33,18 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item d-flex flex-column">
+                    @foreach ($contact_us_detales as $contact_us_detale)
                     <h4 class="" style="font-family: Bell MT!important;">Contact Us</h4>
                     <p class="mb-3" style=" line-height:25px; font-family: Bell MT!important;">
-                        Ground Floor, Ward, No. 4, Nangal Rd,
-                        opp. Dell Showroom and Jagat Hospital, Una, Himachal Pradesh 174303</p>
+                        {{-- Ground Floor, Ward, No. 4, Nangal Rd,
+                        opp. Dell Showroom and Jagat Hospital, Una, Himachal Pradesh 174303 --}}
+                        {!! html_entity_decode($contact_us_detale->address) !!}
+                    </p>
                     {{-- <a href=""><i class="fa fa-map-marker-alt me-2"></i> Ground Floor, Ward, No. 4, Nangal Rd,
                         opp. Dell Showroom and Jagat Hospital, Una, Himachal Pradesh 174303</a> --}}
-                    <a href="" style="font-family: Bell MT!important;"><i class="fas fa-envelope "></i>
-                        info@thedatavue.com</a>
-                    <a href="" style="font-family: Bell MT!important;"><i class="fas fa-phone me-2"></i> +91
-                        7307269991</a>
+                    <a href="" style="font-family: Bell MT!important;"><i class="fas fa-envelope "></i> {{$contact_us_detale->email_id}}</a>
+                    <a href="" style="font-family: Bell MT!important;"><i class="fas fa-phone me-2"></i> {{$contact_us_detale->phone_no}}</a>
+                    @endforeach
                     <div class="d-flex align-items-center ">
                         <a class="btn btn-light btn-md-square me-2"
                             href="https://www.facebook.com/TheDataVueTechnologies/" target="-blank" title="facebook"><i
@@ -53,6 +55,7 @@
                             href="https://www.linkedin.com/company/thedatavue-technologies" target="-blank"
                             title="linkedin"><i class="fab fa-linkedin-in"></i></a>
                     </div>
+                  
                 </div>
             </div>
         </div>

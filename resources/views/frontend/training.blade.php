@@ -20,27 +20,28 @@
 
 
 
-    
+
     <!-- Why Choose us Start -->
     <div class="container-fluid faq py-5">
         <div class="container py-5">
-            <div class="pb-5">
+            {{-- <div class="pb-5">
                 <h1 class="text-danger" style="text-align:center">Training</h1>
-                {{-- <h3 class="display-4">We are providing good services to our clients.</h3> --}}
-            </div>
+                <h3 class="display-4">We are providing good services to our clients.</h3>
+            </div> --}}
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="pb-5">
-                        <h5 style="font-family: Bell MT!important;">Keep training and keep learning until you get it right.</h5>
+                        <h5 style="font-family: Bell MT!important;">Keep training and keep learning until you get it right.
+                        </h5>
 
                     </div>
                     <div class="accordion bg-light rounded p-4" id="accordionExample">
 
                         <div class="accordion-item border-0 mb-4">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed text-danger fs-5 rounded-top"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed text-danger fs-5 rounded-top" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
                                     45 Day's Training
                                 </button>
                             </h2>
@@ -55,26 +56,26 @@
                         </div>
                         <div class="accordion-item border-0 mb-4">
                             <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed text-danger fs-5 rounded-top"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                    aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button collapsed text-danger fs-5 rounded-top" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
                                     6 Month Training
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body my-2">
-                                   <p>Php Development</p>
-                                   <p>UI/UX</p>
-                                    
+                                    <p>Php Development</p>
+                                    <p>UI/UX</p>
+
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item border-0 mb-0">
                             <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed text-danger fs-5 rounded-top"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                    aria-expanded="false" aria-controls="collapseFour">
+                                <button class="accordion-button collapsed text-danger fs-5 rounded-top" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
                                     1 Year Training
                                 </button>
                             </h2>
