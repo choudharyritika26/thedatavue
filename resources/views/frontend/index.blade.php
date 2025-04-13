@@ -1,7 +1,39 @@
 @extends('frontend.layout.app')
 
-@section('style')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+@section('styles')
     <style>
+/* Base styles for the arrows */
+.slick-slider .slick-prev, .slick-slider .slick-next {
+    color: black; /* Change to your desired color */
+    font-size: 24px; /* Adjust size as needed */
+    opacity: 1; /* Ensure they are fully opaque */
+    transition: opacity 0.3s; /* Smooth transition */
+    visibility: visible !important; /* Ensure they are visible */
+    z-index: 1000; /* Ensure they are on top */
+}
+
+/* Hover styles for the arrows */
+.slick-slider .slick-prev:hover, .slick-slider .slick-next:hover {
+    opacity: 1; /* Keep them visible on hover */
+    visibility: visible !important; /* Ensure they are visible on hover */
+    color: red; /* Change to a visible color on hover */
+}
+
+/* Background and padding for the arrows */
+.slick-prev, .slick-next {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background */
+    border-radius: 50%; /* Optional: round the corners */
+    padding: 10px; /* Add some padding */
+}
+
+/* Ensure arrows are visible on hover */
+.slick-prev:hover, .slick-next:hover {
+    opacity: 1; /* Ensure they are fully opaque */
+    visibility: visible !important; /* Ensure they are visible */
+}
         .button-group {
             margin-bottom: 20px;
         }
@@ -145,135 +177,135 @@
 
 
 
-    <!-- Services Start -->
-    <div class="container-fluid service py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                {{-- <h4 class="text-primary">Our Services</h4> --}}
-                <h1 class="text-danger display-4" style="text-align:center">Our Services</h1>
+ <!-- Services Start -->
+ <div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            {{-- <h4 class="text-primary">Our Services</h4> --}}
+            <h1 class="text-danger display-4" style="text-align:center">Our Services</h1>
 
-                {{-- <h1 class="display-4"> Offering the Best Consulting & Investa Services</h1> --}}
-            </div>
-            <div class="row g-4 justify-content-center text-center">
-                <div class="services-slider">
-                @foreach ($services as $services)
-                    {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item bg-light rounded" style="height:430px">
-                            <div class="service-img">
-                                <img src="{{ asset('storage/' . $services->image) }}" style="height: 180px"
-                                    class="img-fluid w-100 rounded-top" alt="">
-                            </div>
-                            <div class="service-content text-center p-4">
-                                <div class="service-content-inner">
-                                    <a href="#" class="h4  d-inline-flex text-danger">
-                                        {{ $services->heading }}</a>
-                                   
-                                    <p class="" style="margin-top: -10px">
-                                      
-                                        {!! Str::limit(html_entity_decode($services->description), 100) !!}
-                                    </p>
-
-                                    <a class="btn btn-light rounded-pill py-2 px-4"
-                                        href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item bg-light rounded p-4" style="height: 380px;">
-                            <div class="service-img text-center"
-                                style="height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
-                                <!-- Circle background -->
-                                <div class="circle-background"
-                                    style="position: absolute; width: 100px; height: 100px; background-color:
-                                     rgba(255, 0, 0, 0.2); border-radius: 50%; top: 50%; left: 50%; transform: 
-                                     translate(-50%, -50%); z-index: 1;">
-                                </div>
-                                <i class='fas fa-globe text-dark' style='font-size:60px; z-index: 2;'></i>
-                            </div>
-                            <div class="service-content text-center p-2">
-                                <div class="service-content-inner">
-                                    <a href="#" class="h4 d-inline-flex text-dark">
-                                        {{ $services->heading }}</a>
-                                    <p class="" style="margin-top: -10px">
-                                        {!! Str::limit(html_entity_decode($services->description), 100) !!}
-                                    </p>
-
-                                    <a class="btn btn-light rounded-pill py-2 px-4"
-                                        href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
+            {{-- <h1 class="display-4"> Offering the Best Consulting & Investa Services</h1> --}}
+        </div>
+        <div class="row g-4 justify-content-center text-center">
+            {{-- <div class="services-slider"> --}}
+            @foreach ($services as $services)
                 {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded">
+                    <div class="service-item bg-light rounded" style="height:430px">
                         <div class="service-img">
-                            <img src="{{ 'frontend/img/services/mobile.jpg' }}" style="height: 180px"
+                            <img src="{{ asset('storage/' . $services->image) }}" style="height: 180px"
                                 class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="service-content text-center p-4">
                             <div class="service-content-inner">
-                                <a href="#" class="h4 mb-4 d-inline-flex text-danger">Mobile
-                                        Applications</a>
-                                <p class="mb-4">A mobile app (or mobile application) is a software application developed
-                                    specifically for use on small, wireless computer devices, such as smartphones and
-                                    tablets.
+                                <a href="#" class="h4  d-inline-flex text-danger">
+                                    {{ $services->heading }}</a>
+                               
+                                <p class="" style="margin-top: -10px">
+                                  
+                                    {!! Str::limit(html_entity_decode($services->description), 100) !!}
                                 </p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item bg-light rounded">
-                        <div class="service-img">
-                            <img src="{{ 'frontend/img/services/webdesgin1.jpg' }}" style="height: 180px"
-                                class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="service-content text-center p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="h4 mb-4 d-inline-flex text-danger"> Website
-                                        Designing</a>
-                                <p class="mb-4">Website designing, also known as web design, is the process of creating
-                                    and building a website that is visually appealing, user-friendly, and provides a good
-                                    user experience.
-                                </p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item bg-light rounded">
-                        <div class="service-img">
-                            <img src="{{ 'frontend/img/services/digital.jpg' }}" style="height: 180px"
-                                class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="service-content text-center p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="h4 mb-4 d-inline-flex text-danger"> Digital
-                                        Marketing</a>
-                                <p class="mb-4">Digital marketing typically refers to online marketing campaigns that
-                                    appear on a computer, phone, tablet, . It can take many forms, including
-                                    online video,  search engine marketing.
-                                </p>
-                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+
+                                <a class="btn btn-light rounded-pill py-2 px-4"
+                                    href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div> --}}
-                {{-- <div class="col-12">
-                    <a class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s"
-                        href="#">Services More</a>
-                </div> --}}
+
+                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded p-4" style="height: 380px;">
+                        <div class="service-img text-center"
+                            style="height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
+                            <!-- Circle background -->
+                            <div class="circle-background"
+                                style="position: absolute; width: 100px; height: 100px; background-color:
+                                 rgba(255, 0, 0, 0.2); border-radius: 50%; top: 50%; left: 50%; transform: 
+                                 translate(-50%, -50%); z-index: 1;">
+                            </div>
+                            <i class='fas fa-globe text-dark' style='font-size:60px; z-index: 2;'></i>
+                        </div>
+                        <div class="service-content text-center p-2">
+                            <div class="service-content-inner">
+                                <a href="#" class="h4 d-inline-flex text-dark">
+                                    {{ $services->heading }}</a>
+                                <p class="" style="margin-top: -10px">
+                                    {!! Str::limit(html_entity_decode($services->description), 100) !!}
+                                </p>
+
+                                <a class="btn btn-light rounded-pill py-2 px-4"
+                                    href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        {{-- </div> --}}
+
+            {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item bg-light rounded">
+                    <div class="service-img">
+                        <img src="{{ 'frontend/img/services/mobile.jpg' }}" style="height: 180px"
+                            class="img-fluid w-100 rounded-top" alt="">
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="h4 mb-4 d-inline-flex text-danger">Mobile
+                                    Applications</a>
+                            <p class="mb-4">A mobile app (or mobile application) is a software application developed
+                                specifically for use on small, wireless computer devices, such as smartphones and
+                                tablets.
+                            </p>
+                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item bg-light rounded">
+                    <div class="service-img">
+                        <img src="{{ 'frontend/img/services/webdesgin1.jpg' }}" style="height: 180px"
+                            class="img-fluid w-100 rounded-top" alt="">
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="h4 mb-4 d-inline-flex text-danger"> Website
+                                    Designing</a>
+                            <p class="mb-4">Website designing, also known as web design, is the process of creating
+                                and building a website that is visually appealing, user-friendly, and provides a good
+                                user experience.
+                            </p>
+                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item bg-light rounded">
+                    <div class="service-img">
+                        <img src="{{ 'frontend/img/services/digital.jpg' }}" style="height: 180px"
+                            class="img-fluid w-100 rounded-top" alt="">
+                    </div>
+                    <div class="service-content text-center p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="h4 mb-4 d-inline-flex text-danger"> Digital
+                                    Marketing</a>
+                            <p class="mb-4">Digital marketing typically refers to online marketing campaigns that
+                                appear on a computer, phone, tablet, . It can take many forms, including
+                                online video,  search engine marketing.
+                            </p>
+                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+            {{-- <div class="col-12">
+                <a class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s"
+                    href="#">Services More</a>
+            </div> --}}
         </div>
     </div>
-    <!-- Services End -->
+</div>
+<!-- Services End -->
 
 
     <!-- Why Choose us Start -->
@@ -396,29 +428,29 @@
                                 </div>
                             </div>
                             <!-- <div class="col-sm-4">
-                            <div class=" rounded p-4">
-                                <div class="w-100 p-4 d-flex align-items-center justify-content-center">
-                                    <h4 class="mb-0  text-danger">Years Of Experience</h4>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">21</span></h2>
-                                  
-                                </div>
+                                    <div class=" rounded p-4">
+                                        <div class="w-100 p-4 d-flex align-items-center justify-content-center">
+                                            <h4 class="mb-0  text-danger">Years Of Experience</h4>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">21</span></h2>
+                                          
+                                        </div>
 
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class=" rounded p-4">
-                                <div class="w-100 p-4 d-flex align-items-center justify-content-center">
-                                    <h4 class="text-danger mb-0">Team Members</h4>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">97</span></h2>
-                                  
-                                </div>
+                                <div class="col-sm-4">
+                                    <div class=" rounded p-4">
+                                        <div class="w-100 p-4 d-flex align-items-center justify-content-center">
+                                            <h4 class="text-danger mb-0">Team Members</h4>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">97</span></h2>
+                                          
+                                        </div>
 
-                            </div>
-                        </div> -->
+                                    </div>
+                                </div> -->
                         @endforeach
                     </div>
                 </div>
@@ -852,36 +884,56 @@
     <!-- Include Isotope.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
     <script>
         $(document).ready(function() {
-    $('.services-slider').slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 800,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-        ]
-    });
+            $('.services-slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
+                responsive: [{
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
+            });
 
-});
+            // Function to set equal heights
+            function setEqualHeight() {
+                var maxHeight = 0;
+                $('.service-item').each(function() {
+                    var thisHeight = $(this).outerHeight();
+                    if (thisHeight > maxHeight) {
+                        maxHeight = thisHeight;
+                    }
+                });
+                $('.service-item').css('height', maxHeight + 'px');
+            }
+            // Set equal heights on load and after the slider initializes
+            setEqualHeight();
+            $(window).on('resize', function() {
+                setEqualHeight();
+            });
+        });
     </script>
 
-  
+
     <script>
         $(document).ready(function() {
             // alert('ss');

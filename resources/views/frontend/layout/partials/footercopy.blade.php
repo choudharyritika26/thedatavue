@@ -5,7 +5,7 @@
                 <div class="footer-item d-flex flex-column">
                     <div class="footer-item">
                         @foreach ($contact_us_detales as $contact_us_detale)
-                            <h4 class="text-white mb-4"> <img src="{{ asset('storage/' . $contact_us_detale->image) }}"
+                            <h4 class="text-white mb-4"> <img src="{{ asset('public/storage/' . $contact_us_detale->image) }}"
                                     style="height:80px; width:150px" alt="Logo"> </h4>
                             <p class="text-white">TheDataVue Technologies is a
                                 Himachal (India) based company with a wealth of experience in Mobile &amp; Web
@@ -19,7 +19,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item d-flex flex-column">
-                    <h4 style="color:var(--bs-danger) !important;font-weight:bold;">Useful
+                    <h4 style="font-family: Bell MT!important; color:var(--bs-danger) !important;">Useful
                         Links</h4>
                     <a class="text-white" href="{{ route('frontend.index') }}"></i>
                         Home</a>
@@ -39,9 +39,9 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item d-flex flex-column">
                     @foreach ($contact_us_detales as $contact_us_detale)
-                        <h4 style="color:var(--bs-danger)  !important; font-weight:bold;">
+                        <h4 style="font-family: Bell MT!important; color:var(--bs-danger)  !important;">
                             Contact Us</h4>
-                        <p class="mb-3 text-white" style=" line-height:25px;">
+                        <p class="mb-3 text-white" style=" line-height:25px; font-family: Bell MT!important;">
                             {{-- Ground Floor, Ward, No. 4, Nangal Rd,
                         opp. Dell Showroom and Jagat Hospital, Una, Himachal Pradesh 174303 --}}
                             {!! html_entity_decode($contact_us_detale->address) !!}
@@ -88,5 +88,5 @@
  
         </div>
     </div>
-</div>
+</div>a
 <!-- Copyright End -->

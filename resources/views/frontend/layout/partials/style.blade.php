@@ -28,10 +28,6 @@
 
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-
-
 
 <style>
     .floating-buttons {
@@ -475,10 +471,21 @@ p {
 
 
 
-.footer {
-        background: url({{ asset('frontend/img/backgroundblue.jpg') }}) no-repeat center center !important;
+/* .footer {
+        background: url({{ asset('frontend/img/purple_and_blue_light_gradient_background.jpg') }}) no-repeat center center !important;
+        background: rgb(47, 91, 231) 100% !important;
         background-size: cover !important;      
         width: auto;
+    } */
+
+    .footer {
+    background: linear-gradient(to bottom, rgba(3, 103, 166,0.3) 0%, rgba(47, 91, 231, 0.7) 100%), rgba(255, 255, 255, 0.9) !important;
+}
+
+
+
+    .copyright{
+        font-family: "Montserrat", 'sans-serif' !important;
     }
 
 </style>

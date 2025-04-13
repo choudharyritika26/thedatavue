@@ -151,5 +151,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Lightbox2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

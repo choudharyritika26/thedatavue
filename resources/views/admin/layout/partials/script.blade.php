@@ -139,3 +139,23 @@
         }
     }
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('form').submit(function(event) {
+            var description = $('.summernote').summernote('code');
+            if (!description.trim()) {
+                event.preventDefault();
+                $('.summernote').addClass('is-invalid');
+                $('.summernote').parent().find('.invalid-feedback').text('Description is required');
+            }
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>

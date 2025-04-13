@@ -65,7 +65,7 @@
 
                                 <div class="col-12">
                                     <label for="comment">Description</label>
-                                    <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
+                                    <textarea class="form-control description summernote" name="description" rows="3"></textarea>
                                     @if ($errors->has('description'))
                                         <span class="text-danger">{{ $errors->first('description') }}</span>
                                     @endif
