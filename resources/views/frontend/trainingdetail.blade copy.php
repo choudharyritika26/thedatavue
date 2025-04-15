@@ -43,7 +43,7 @@
             <h1 class="text-danger display-4" style="text-align:center">About Us</h1>
 
         </div> --}}
-        <div class="row g-5 ">
+        <div class="row g-5 align-items-center">
             {{-- @foreach ($trainingtype as $trainingtype) --}}
             <div class="col-lg-4 col-xl-4 wow fadeInLeft" data-wow-delay="0.1s">
                 <div class="about-img">

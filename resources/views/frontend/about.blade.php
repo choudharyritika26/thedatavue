@@ -21,7 +21,7 @@
 <!-- About Start -->
 <div class="container-fluid about bg-light py-5">
     <div class="container py-5">
-        <div class="row g-5 align-items-center">
+        <div class="row g-5 ">
             @foreach ($about as $aboutus)
             <div class="col-lg-4 col-xl-4 wow fadeInLeft" data-wow-delay="0.1s">
                 <div class="about-img">

@@ -40,6 +40,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->heading }}</td>
                                         <td>{!! html_entity_decode($item->description) !!}</td>
+                                        {{-- <td>{!! nl2br(html_entity_decode($item->description)) !!}</td> --}}
                                         <td>{{ $item->duration }}</td>
                                         <td>
                                             <img src="{{ asset('storage/' . $item->image) }}" alt=""

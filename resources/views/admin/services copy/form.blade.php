@@ -28,35 +28,47 @@
                             <strong>{{ $message }}</strong>
                     @endif
                     <div class="card">
-                        <div class="card-body">                        
-                            <h5 class="card-title">Add Servicesr</h5>
-                            {{-- <ul id="#errorMessages"></ul> --}}
+                        <div class="card-body">
+                            <h5 class="card-title">Add Services</h5>
 
                             <!-- Vertical Form -->
-                            <form class="row g-3" action="{{ route('store-services') }}" method="post"
+                            <form class="row g-3 p-1" action="{{ route('store-services') }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
-
                                 <div class="errorlist">
                                     <div id="errorMessages" class="alert alert-danger" style="display: none;">
                                         <ul></ul>
                                     </div>
                                 </div>
-                                
+
+                                {{-- <div class="col-12">
+                                   
+                                    <label for="category" class="form-label">Services category</label>
+                                    <select class="form-select" name="category" id="category">
+                                        <option value="">Select category </option>
+                                        @foreach ($servicescatagries as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('category'))
+                                        <span class="text-danger">{{ $errors->first('category') }}</span>
+                                    @endif
+                                </div> --}}
+
                                 <div class="col-12">
-                                    <label for="heading" class="form-label">Heading</label>
+                                    <label for="heading" class="form-label">Name</label>
                                     <input type="text" class="form-control" name="heading" id="heading">
-                                    {{-- @if ($errors->has('heading'))
+                                    @if ($errors->has('heading'))
                                         <span class="text-danger">{{ $errors->first('heading') }}</span>
-                                    @endif --}}
+                                    @endif
                                 </div>
 
                                 <div class="col-12">
                                     <label for="comment">Description</label>
-                                    <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
-                                    {{-- @if ($errors->has('description'))
+                                    <textarea class="form-control description summernote" name="description" rows="3"></textarea>
+                                    @if ($errors->has('description'))
                                         <span class="text-danger">{{ $errors->first('description') }}</span>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-12">
                                     <label for="image" class="form-label">Image</label>
@@ -67,6 +79,18 @@
                                         <span class="text-danger">{{ $errors->first('image') }}</span>
                                     @endif
                                 </div>
+
+                                {{-- <div class="mb-3">
+                                    <label for="sort_col">Sort Col</label>
+                                    <input class="form-control @error('sort_col') is-invalid @enderror" type="text"
+                                        name="sort_col" id="sort_col" placeholder="Sort Col" required />
+                                    @error('sort_col')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div> --}}
+
                                 <div class="mb-3 image-preview-container" style="display: none;">
                                     <label for="preview">Image Preview</label>
                                     <img class="image-preview" style="max-width: 100%;" />
@@ -87,7 +111,7 @@
                                     @enderror
                                 </div> --}}
 
-                                <div class="card-action submitServicesBtn">
+                                <div class="card-action p-3 submitServicesBtn">
                                     <button class="btn btn-success" type="submit">Submit</button>
                                     {{-- <button class="btn btn-danger">Cancel</button> --}}
                                 </div>
@@ -135,6 +159,7 @@
     </script>
 
 
+
     <script>
         $(document).ready(function() {
             // Handle the form submission for the services
@@ -146,7 +171,7 @@
                 var formData = new FormData($(this).closest('form')[0]);
 
                 // Get the value from the CKEditor instance directly
-                const description = editorInstance.getData(); // Use the global editor instance
+                 const description = editorInstance.getData(); // Use the global editor instance
                 formData.set('description', description); // Set the description field with CKEditor data
 
                 // Send the AJAX request with the CSRF token

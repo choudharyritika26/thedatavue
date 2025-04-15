@@ -5,35 +5,54 @@
 
 @section('styles')
     <style>
-/* Base styles for the arrows */
-.slick-slider .slick-prev, .slick-slider .slick-next {
-    color: black; /* Change to your desired color */
-    font-size: 24px; /* Adjust size as needed */
-    opacity: 1; /* Ensure they are fully opaque */
-    transition: opacity 0.3s; /* Smooth transition */
-    visibility: visible !important; /* Ensure they are visible */
-    z-index: 1000; /* Ensure they are on top */
-}
+        /* Base styles for the arrows */
+        .slick-slider .slick-prev,
+        .slick-slider .slick-next {
+            color: black;
+            /* Change to your desired color */
+            font-size: 24px;
+            /* Adjust size as needed */
+            opacity: 1;
+            /* Ensure they are fully opaque */
+            transition: opacity 0.3s;
+            /* Smooth transition */
+            visibility: visible !important;
+            /* Ensure they are visible */
+            z-index: 1000;
+            /* Ensure they are on top */
+        }
 
-/* Hover styles for the arrows */
-.slick-slider .slick-prev:hover, .slick-slider .slick-next:hover {
-    opacity: 1; /* Keep them visible on hover */
-    visibility: visible !important; /* Ensure they are visible on hover */
-    color: red; /* Change to a visible color on hover */
-}
+        /* Hover styles for the arrows */
+        .slick-slider .slick-prev:hover,
+        .slick-slider .slick-next:hover {
+            opacity: 1;
+            /* Keep them visible on hover */
+            visibility: visible !important;
+            /* Ensure they are visible on hover */
+            color: red;
+            /* Change to a visible color on hover */
+        }
 
-/* Background and padding for the arrows */
-.slick-prev, .slick-next {
-    background-color: rgba(255, 255, 255, 0.8); /* Light background */
-    border-radius: 50%; /* Optional: round the corners */
-    padding: 10px; /* Add some padding */
-}
+        /* Background and padding for the arrows */
+        .slick-prev,
+        .slick-next {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Light background */
+            border-radius: 50%;
+            /* Optional: round the corners */
+            padding: 10px;
+            /* Add some padding */
+        }
 
-/* Ensure arrows are visible on hover */
-.slick-prev:hover, .slick-next:hover {
-    opacity: 1; /* Ensure they are fully opaque */
-    visibility: visible !important; /* Ensure they are visible */
-}
+        /* Ensure arrows are visible on hover */
+        .slick-prev:hover,
+        .slick-next:hover {
+            opacity: 1;
+            /* Ensure they are fully opaque */
+            visibility: visible !important;
+            /* Ensure they are visible */
+        }
+
         .button-group {
             margin-bottom: 20px;
         }
@@ -139,7 +158,7 @@
     <!-- About Start -->
     <div class="container-fluid about bg-light py-5">
         <div class="container py-5">
-            <div class="row g-5 align-items-center">
+            <div class="row g-5 ">
                 @foreach ($about as $aboutus)
                     <div class="col-lg-4 col-xl-4 wow fadeInLeft" data-wow-delay="0.1s">
                         <div class="about-img">
@@ -177,19 +196,19 @@
 
 
 
- <!-- Services Start -->
- <div class="container-fluid service py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            {{-- <h4 class="text-primary">Our Services</h4> --}}
-            <h1 class="text-danger display-4" style="text-align:center">Our Services</h1>
+    <!-- Services Start -->
+    <div class="container-fluid service py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                {{-- <h4 class="text-primary">Our Services</h4> --}}
+                <h1 class="text-danger display-4" style="text-align:center">Our Services</h1>
 
-            {{-- <h1 class="display-4"> Offering the Best Consulting & Investa Services</h1> --}}
-        </div>
-        <div class="row g-4 justify-content-center text-center">
-            {{-- <div class="services-slider"> --}}
-            @foreach ($services as $services)
-                {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                {{-- <h1 class="display-4"> Offering the Best Consulting & Investa Services</h1> --}}
+            </div>
+            <div class="row g-4 justify-content-center text-center">
+                {{-- <div class="services-slider"> --}}
+                @foreach ($services as $services)
+                    {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-light rounded" style="height:430px">
                         <div class="service-img">
                             <img src="{{ asset('storage/' . $services->image) }}" style="height: 180px"
@@ -212,9 +231,9 @@
                     </div>
                 </div> --}}
 
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded p-4" style="height: 380px;">
-                        <div class="service-img text-center"
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item bg-light rounded p-4" style="height: 380px;">
+                            {{-- <div class="service-img text-center"
                             style="height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
                             <!-- Circle background -->
                             <div class="circle-background"
@@ -223,25 +242,39 @@
                                  translate(-50%, -50%); z-index: 1;">
                             </div>
                             <i class='fas fa-globe text-dark' style='font-size:60px; z-index: 2;'></i>
-                        </div>
-                        <div class="service-content text-center p-2">
-                            <div class="service-content-inner">
-                                <a href="#" class="h4 d-inline-flex text-dark">
-                                    {{ $services->heading }}</a>
-                                <p class="" style="margin-top: -10px">
-                                    {!! Str::limit(html_entity_decode($services->description), 100) !!}
-                                </p>
+                            <img src="{{ asset('storage/' . $services->image) }}"  style='font-size:60px; z-index: 2;'>
+                        </div> --}}
 
-                                <a class="btn btn-light rounded-pill py-2 px-4"
-                                    href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
+                            <div class="service-img text-center"
+                                style="height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
+                                <!-- Circle background -->
+                                <div class="circle-background"
+                                    style="position: absolute; width: 100px; height: 100px; background-color: rgba(255, 0, 0, 0.2); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;">
+                                </div>
+                                {{-- Icon with fixed size and centered position --}}
+                                <img src="{{ asset('storage/' . $services->image) }}"
+                                style="width: 60px; height: 60px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+                                {{-- <img src="{{ asset('storage/' . $services->image) }}"
+                                    style="width: 60px; height: 60px; filter: brightness(0) saturate(100%) invert(30%);"> --}}
+                            </div>
+                            <div class="service-content text-center p-2">
+                                <div class="service-content-inner">
+                                    <a href="#" class="h4 d-inline-flex text-dark">
+                                        {{ $services->heading }}</a>
+                                    <p class="" style="margin-top: -10px">
+                                        {!! Str::limit(html_entity_decode($services->description), 100) !!}
+                                    </p>
+
+                                    <a class="btn btn-light rounded-pill py-2 px-4"
+                                        href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        {{-- </div> --}}
+                @endforeach
+                {{-- </div> --}}
 
-            {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item bg-light rounded">
                     <div class="service-img">
                         <img src="{{ 'frontend/img/services/mobile.jpg' }}" style="height: 180px"
@@ -298,14 +331,14 @@
                     </div>
                 </div>
             </div> --}}
-            {{-- <div class="col-12">
+                {{-- <div class="col-12">
                 <a class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s"
                     href="#">Services More</a>
             </div> --}}
+            </div>
         </div>
     </div>
-</div>
-<!-- Services End -->
+    <!-- Services End -->
 
 
     <!-- Why Choose us Start -->
@@ -428,29 +461,29 @@
                                 </div>
                             </div>
                             <!-- <div class="col-sm-4">
-                                    <div class=" rounded p-4">
-                                        <div class="w-100 p-4 d-flex align-items-center justify-content-center">
-                                            <h4 class="mb-0  text-danger">Years Of Experience</h4>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">21</span></h2>
-                                          
-                                        </div>
+                                            <div class=" rounded p-4">
+                                                <div class="w-100 p-4 d-flex align-items-center justify-content-center">
+                                                    <h4 class="mb-0  text-danger">Years Of Experience</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">21</span></h2>
+                                                  
+                                                </div>
 
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class=" rounded p-4">
-                                        <div class="w-100 p-4 d-flex align-items-center justify-content-center">
-                                            <h4 class="text-danger mb-0">Team Members</h4>
+                                            </div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">97</span></h2>
-                                          
-                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class=" rounded p-4">
+                                                <div class="w-100 p-4 d-flex align-items-center justify-content-center">
+                                                    <h4 class="text-danger mb-0">Team Members</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">97</span></h2>
+                                                  
+                                                </div>
 
-                                    </div>
-                                </div> -->
+                                            </div>
+                                        </div> -->
                         @endforeach
                     </div>
                 </div>

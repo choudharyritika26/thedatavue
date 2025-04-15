@@ -8,10 +8,12 @@
 
         <div class="pagetitle">
             <h1 style="margin-top: 20px"></h1>
+            {{-- <span>
+                <h1 style="margin-top:-30px; margin-left:800px;"><a href="{{ route('services-index') }}">Back</a></h1>
+            </span> --}}
             <span style="">
                 <a href="{{ route('services-index') }}"><button class="btn btn-primary">Back</button></a><br><br>
             </span>
-            {{-- <span><h1 style="margin-top:-30px; margin-left:800px;"><a href="{{route('services-index')}}">Back</a></h1></span> --}}
             {{-- <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -28,12 +30,13 @@
                             <strong>{{ $message }}</strong>
                     @endif
                     <div class="card">
-                        <div class="card-body">                        
-                            <h5 class="card-title">Add Servicesr</h5>
-                            {{-- <ul id="#errorMessages"></ul> --}}
+                        <div class="card-body">
+                            <h5 class="card-title">Edit Services</h5>
+
+                           
 
                             <!-- Vertical Form -->
-                            <form class="row g-3" action="{{ route('store-services') }}" method="post"
+                            <form class="row g-3" action="{{ route('update-services', $services->id) }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
 
@@ -42,31 +45,44 @@
                                         <ul></ul>
                                     </div>
                                 </div>
-                                
+                               
+                                {{-- <div class="col-12">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select class="form-select" name="category" id="catagory">
+                                        <option value="">Select Category</option>
+                                        @foreach ($servicescatagries as $category)    
+                                            <option value="{{ $category->id }}"        
+                                                {{ old('category', $services->category ?? '') == $category->id ? 'selected' : '' }}>
+                                                {{ $category->category }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('category'))
+                                        <span class="text-danger">{{ $errors->first('category') }}</span>
+                                    @endif
+                                </div> --}}
+
                                 <div class="col-12">
-                                    <label for="heading" class="form-label">Heading</label>
-                                    <input type="text" class="form-control" name="heading" id="heading">
-                                    {{-- @if ($errors->has('heading'))
-                                        <span class="text-danger">{{ $errors->first('heading') }}</span>
-                                    @endif --}}
+                                    <label for="heading" class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="heading"
+                                        value="{{ $services->heading }}"id="heading">
                                 </div>
 
                                 <div class="col-12">
                                     <label for="comment">Description</label>
-                                    <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
-                                    {{-- @if ($errors->has('description'))
-                                        <span class="text-danger">{{ $errors->first('description') }}</span>
-                                    @endif --}}
+                                    <textarea class="form-control" id="comment" name="description" rows="3">{!! html_entity_decode($services->description) !!} </textarea>
+                                
                                 </div>
+
                                 <div class="col-12">
+
                                     <label for="image" class="form-label">Image</label>
-                                    <input type="file" name="image" id="image"
-                                        class="image-input form-control @error('image') is-invalid @enderror"
-                                        onchange="previewImage(event)">
-                                    @if ($errors->has('image'))
-                                        <span class="text-danger">{{ $errors->first('image') }}</span>
-                                    @endif
+                                    <img src="{{ asset('storage/' . $services->image) }}" alt=""
+                                        class="img-fluid mb-3" style="width: 200px;height:150px;">
+                                    <input type="file" class="form-control" name="image" value="{{ $services->image }}"
+                                        id="image" onchange="previewImage(event)">
                                 </div>
+
                                 <div class="mb-3 image-preview-container" style="display: none;">
                                     <label for="preview">Image Preview</label>
                                     <img class="image-preview" style="max-width: 100%;" />
@@ -77,9 +93,9 @@
                                 </div>
 
                                 {{-- <div class="col-12">
-                                    <label for="sort_col">Sort Col</label>
+                                    <label for="sort">Sort Col</label>
                                     <input class="form-control @error('sort_col') is-invalid @enderror" type="text"
-                                        name="sort_col" id="sort_col" placeholder="Sort Col" required />
+                                        name="sort_col" value="{{ $services->sort_col }}" id="sort_col" placeholder="Sort Col" required/>
                                     @error('sort_col')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -87,7 +103,7 @@
                                     @enderror
                                 </div> --}}
 
-                                <div class="card-action submitServicesBtn">
+                                <div class="card-action submitEditServicesBtn">
                                     <button class="btn btn-success" type="submit">Submit</button>
                                     {{-- <button class="btn btn-danger">Cancel</button> --}}
                                 </div>
@@ -138,7 +154,7 @@
     <script>
         $(document).ready(function() {
             // Handle the form submission for the services
-            $('.submitServicesBtn').click(function(e) {
+            $('.submitEditServicesBtn').click(function(e) {
                 //alert('jijed');
                 e.preventDefault();
 
@@ -159,7 +175,7 @@
                 $.ajax({
                     type: 'POST',
                     // Adjust the route for the services form submission
-                    url: '{{ route('store-services', isset($services) ? $services->id : null) }}',
+                    url: '{{ route('update-services', $services->id) }}',
                     data: formData,
                     contentType: false, // Important: Set this to false to send the file
                     processData: false, // Important: Set this to false to send the file
