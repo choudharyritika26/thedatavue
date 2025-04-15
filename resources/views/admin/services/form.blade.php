@@ -1,6 +1,8 @@
 @extends('admin.layout.app')
 
-@section('style')
+@section('styles')
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -28,35 +30,47 @@
                             <strong>{{ $message }}</strong>
                     @endif
                     <div class="card">
-                        <div class="card-body">                        
-                            <h5 class="card-title">Add Servicesr</h5>
-                            {{-- <ul id="#errorMessages"></ul> --}}
+                        <div class="card-body">
+                            <h5 class="card-title">Add Services</h5>
 
                             <!-- Vertical Form -->
-                            <form class="row g-3" action="{{ route('store-services') }}" method="post"
+                            <form class="row g-3 p-1" action="{{ route('store-services') }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
-
                                 <div class="errorlist">
                                     <div id="errorMessages" class="alert alert-danger" style="display: none;">
                                         <ul></ul>
                                     </div>
                                 </div>
-                                
+
+                                {{-- <div class="col-12">
+                                   
+                                    <label for="category" class="form-label">Services category</label>
+                                    <select class="form-select" name="category" id="category">
+                                        <option value="">Select category </option>
+                                        @foreach ($servicescatagries as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('category'))
+                                        <span class="text-danger">{{ $errors->first('category') }}</span>
+                                    @endif
+                                </div> --}}
+
                                 <div class="col-12">
-                                    <label for="heading" class="form-label">Heading</label>
+                                    <label for="heading" class="form-label">Name</label>
                                     <input type="text" class="form-control" name="heading" id="heading">
-                                    {{-- @if ($errors->has('heading'))
+                                    @if ($errors->has('heading'))
                                         <span class="text-danger">{{ $errors->first('heading') }}</span>
-                                    @endif --}}
+                                    @endif
                                 </div>
 
                                 <div class="col-12">
                                     <label for="comment">Description</label>
-                                    <textarea class="form-control" id="comment" name="description" rows="3"></textarea>
-                                    {{-- @if ($errors->has('description'))
+                                    <textarea class="form-control description summernote" name="description" rows="3"></textarea>
+                                    @if ($errors->has('description'))
                                         <span class="text-danger">{{ $errors->first('description') }}</span>
-                                    @endif --}}
+                                    @endif
                                 </div>
                                 <div class="col-12">
                                     <label for="image" class="form-label">Image</label>
@@ -67,6 +81,18 @@
                                         <span class="text-danger">{{ $errors->first('image') }}</span>
                                     @endif
                                 </div>
+
+                                {{-- <div class="mb-3">
+                                    <label for="sort_col">Sort Col</label>
+                                    <input class="form-control @error('sort_col') is-invalid @enderror" type="text"
+                                        name="sort_col" id="sort_col" placeholder="Sort Col" required />
+                                    @error('sort_col')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div> --}}
+
                                 <div class="mb-3 image-preview-container" style="display: none;">
                                     <label for="preview">Image Preview</label>
                                     <img class="image-preview" style="max-width: 100%;" />
@@ -87,7 +113,7 @@
                                     @enderror
                                 </div> --}}
 
-                                <div class="card-action submitServicesBtn">
+                                <div class="card-action p-3 submitServicesBtn">
                                     <button class="btn btn-success" type="submit">Submit</button>
                                     {{-- <button class="btn btn-danger">Cancel</button> --}}
                                 </div>
@@ -105,6 +131,40 @@
 @section('script')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
+
+    <script>
+        $('.summernote').summernote({
+            //   placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            //   height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                var description = $('.summernote').summernote('code');
+                if (!description.trim()) {
+                    event.preventDefault();
+                    $('.summernote').addClass('is-invalid');
+                    $('.summernote').parent().find('.invalid-feedback').text('Description is required');
+                }
+            });
+        });
+    </script>
 
     <script>
         const {
@@ -134,22 +194,42 @@
             });
     </script>
 
-
     <script>
         $(document).ready(function() {
-            // Handle the form submission for the services
-            $('.submitServicesBtn').click(function(e) {
-                //alert('jijed');
+            $('.submitServicesBtn button[type="submit"]').click(function(e) {
                 e.preventDefault();
 
-                // Create a new FormData instance
-                var formData = new FormData($(this).closest('form')[0]);
+                $('#errorMessages ul').empty();
+                $('#errorMessages').hide();
 
-                // Get the value from the CKEditor instance directly
-                const description = editorInstance.getData(); // Use the global editor instance
-                formData.set('description', description); // Set the description field with CKEditor data
+                let errors = [];
 
-                // Send the AJAX request with the CSRF token
+                let heading = $('input[name="heading"]').val().trim();
+                let image = $('input[name="image"]').val().trim();
+                let descriptionHtml = $('.description').summernote('code');
+                let tempElement = document.createElement('div');
+                tempElement.innerHTML = descriptionHtml;
+                let descriptionText = tempElement.textContent || tempElement.innerText || '';
+                descriptionText = descriptionText.replace(/\s+/g, '').trim();
+
+                // Validate all fields in order
+                if (!heading) errors.push('The heading field is required.');
+                if (!descriptionText) errors.push('The description field is required.');
+                if (!image) errors.push('The image field is required.');
+
+                if (errors.length > 0) {
+                    errors.forEach(function(error) {
+                        $('#errorMessages ul').append('<li>' + error + '</li>');
+                    });
+                    $('#errorMessages').show();
+                    return;
+                }
+
+                // Proceed with AJAX submission
+                var form = $(this).closest('form')[0];
+                var formData = new FormData(form);
+                formData.set("description", descriptionHtml);
+
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -158,39 +238,27 @@
 
                 $.ajax({
                     type: 'POST',
-                    // Adjust the route for the services form submission
-                    url: '{{ route('store-services', isset($services) ? $services->id : null) }}',
+                    url: '{{ route('store-services') }}',
                     data: formData,
-                    contentType: false, // Important: Set this to false to send the file
-                    processData: false, // Important: Set this to false to send the file
+                    contentType: false,
+                    processData: false,
                     dataType: 'json',
                     success: function(response) {
-                        if (response.message) {
-                            // Display the SweetAlert with a confirmation button
-                            Swal.fire({
-                                title: response.message,
-                                icon: 'success', // Optional: set the icon type
-                                confirmButtonText: 'OK'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    // Redirect to the specified URL
-                                    if (response.redirect_url) {
-                                        window.location.href = response.redirect_url;
-                                    }
-                                }
-                            });
-                        }
+                        Swal.fire({
+                            title: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed && response.redirect_url) {
+                                window.location.href = response.redirect_url;
+                            }
+                        });
                     },
                     error: function(xhr) {
-                        // Clear previous error messages
                         $('#errorMessages ul').empty();
+                        $('#errorMessages').show();
 
-                        // Handle the error response
-                        if (xhr.responseJSON.errors) {
-                            // Show the alert
-                            $('#errorMessages').show();
-
-                            // Loop through the errors and append to the error list
+                        if (xhr.responseJSON && xhr.responseJSON.errors) {
                             $.each(xhr.responseJSON.errors, function(key, messages) {
                                 messages.forEach(function(message) {
                                     $('#errorMessages ul').append('<li>' +
@@ -198,10 +266,8 @@
                                 });
                             });
                         } else {
-                            // If there are no specific validation errors, you can show a general error message
-                            $('#errorMessages').show();
                             $('#errorMessages ul').append(
-                                '<li>There was an error processing your request.</li>');
+                                '<li>Something went wrong. Please try again.</li>');
                         }
                     }
                 });

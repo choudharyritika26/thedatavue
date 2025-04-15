@@ -1,6 +1,8 @@
 @extends('admin.layout.app')
 
-@section('style')
+@section('styles')
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -33,7 +35,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Edit Services</h5>
 
-                           
+
 
                             <!-- Vertical Form -->
                             <form class="row g-3" action="{{ route('update-services', $services->id) }}" method="post"
@@ -45,22 +47,22 @@
                                         <ul></ul>
                                     </div>
                                 </div>
-                               
-                                {{-- <div class="col-12">
-                                    <label for="category" class="form-label">Category</label>
-                                    <select class="form-select" name="category" id="catagory">
-                                        <option value="">Select Category</option>
-                                        @foreach ($servicescatagries as $category)    
-                                            <option value="{{ $category->id }}"        
-                                                {{ old('category', $services->category ?? '') == $category->id ? 'selected' : '' }}>
-                                                {{ $category->category }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('category'))
-                                        <span class="text-danger">{{ $errors->first('category') }}</span>
-                                    @endif
-                                </div> --}}
+
+                                <!-- <div class="col-12">
+                                                                                                        <label for="category" class="form-label">Category</label>
+                                                                                                        <select class="form-select" name="category" id="catagory">
+                                                                                                            <option value="">Select Category</option>
+                                                                                                            @foreach ($servicescatagries as $category)
+    <option value="{{ $category->id }}"
+                                                                                                                    {{ old('category', $services->category ?? '') == $category->id ? 'selected' : '' }}>
+                                                                                                                    {{ $category->category }}
+                                                                                                                </option>
+    @endforeach
+                                                                                                        </select>
+                                                                                                        @if ($errors->has('category'))
+    <span class="text-danger">{{ $errors->first('category') }}</span>
+    @endif
+                                                                                                    </div> -->
 
                                 <div class="col-12">
                                     <label for="heading" class="form-label">Name</label>
@@ -70,8 +72,8 @@
 
                                 <div class="col-12">
                                     <label for="comment">Description</label>
-                                    <textarea class="form-control" id="comment" name="description" rows="3">{!! html_entity_decode($services->description) !!} </textarea>
-                                
+                                    <textarea class="form-control description summernote" name="description" rows="3">{!! html_entity_decode($services->description) !!} </textarea>
+
                                 </div>
 
                                 <div class="col-12">
@@ -88,7 +90,7 @@
                                     <img class="image-preview" style="max-width: 100%;" />
                                     <input type="hidden" class="crop-data-x" name="cropDataX">
                                     <input type="hidden" class="crop-data-y" name="cropDataY">
-                                    <input type="hidden" class="crop-data-width" name="cropDataWidth">
+                                    <input type  ="hidden" class="crop-data-width" name="cropDataWidth">
                                     <input type="hidden" class="crop-data-height" name="cropDataHeight">
                                 </div>
 
@@ -121,6 +123,41 @@
 @section('script')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
+
+    <script>
+        $('.summernote').summernote({
+            //   placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            //   height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                var description = $('.summernote').summernote('code');
+                if (!description.trim()) {
+                    event.preventDefault();
+                    $('.summernote').addClass('is-invalid');
+                    $('.summernote').parent().find('.invalid-feedback').text('Description is required');
+                }
+            });
+        });
+    </script>
+
 
     <script>
         const {
@@ -158,12 +195,43 @@
                 //alert('jijed');
                 e.preventDefault();
 
+                $('#errorMessages ul').empty();
+                $('#errorMessages').hide();
+                let errors = [];
+
+                let heading = $('input[name="heading"]').val().trim();
+                // let image = $('input[name="image"]').val().trim();
+                let descriptionHtml = $('.description').summernote('code');
+                let tempElement = document.createElement('div');
+                tempElement.innerHTML = descriptionHtml;
+                let descriptionText = tempElement.textContent || tempElement.innerText || '';
+                descriptionText = descriptionText.replace(/\s+/g, '').trim();
+
+                // Validate all fields in order
+                if (!heading) errors.push('The heading field is required.');
+                if (!descriptionText) errors.push('The description field is required.');
+                //if (!image) errors.push('The image field is required.');
+
+                if (errors.length > 0) {
+                    errors.forEach(function(error) {
+                        $('#errorMessages ul').append('<li>' + error + '</li>');
+                    });
+                    $('#errorMessages').show();
+                    return;
+                }
+
+                // Proceed with AJAX submission
+                var form = $(this).closest('form')[0];
+                var formData = new FormData(form);
+                formData.set("description", descriptionHtml);
+
+
                 // Create a new FormData instance
-                var formData = new FormData($(this).closest('form')[0]);
+                //var formData = new FormData($(this).closest('form')[0]);
 
                 // Get the value from the CKEditor instance directly
-                const description = editorInstance.getData(); // Use the global editor instance
-                formData.set('description', description); // Set the description field with CKEditor data
+                // const description = editorInstance.getData(); // Use the global editor instance
+                // formData.set('description', description); // Set the description field with CKEditor data
 
                 // Send the AJAX request with the CSRF token
                 $.ajaxSetup({

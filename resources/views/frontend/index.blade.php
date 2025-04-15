@@ -89,6 +89,17 @@
             height: 200px;
             border-radius: 5px;
         }
+
+        .service-item {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .service-content-inner {
+            flex-grow: 1;
+        }
     </style>
 @endsection
 
@@ -203,48 +214,12 @@
                 {{-- <h4 class="text-primary">Our Services</h4> --}}
                 <h1 class="text-danger display-4" style="text-align:center">Our Services</h1>
 
-                {{-- <h1 class="display-4"> Offering the Best Consulting & Investa Services</h1> --}}
             </div>
-            <div class="row g-4 justify-content-center text-center">
-                {{-- <div class="services-slider"> --}}
+            <div class="row g-4 justify-content-center text-center d-flex flex-wrap">
+
                 @foreach ($services as $services)
-                    {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded" style="height:430px">
-                        <div class="service-img">
-                            <img src="{{ asset('storage/' . $services->image) }}" style="height: 180px"
-                                class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="service-content text-center p-4">
-                            <div class="service-content-inner">
-                                <a href="#" class="h4  d-inline-flex text-danger">
-                                    {{ $services->heading }}</a>
-                               
-                                <p class="" style="margin-top: -10px">
-                                  
-                                    {!! Str::limit(html_entity_decode($services->description), 100) !!}
-                                </p>
-
-                                <a class="btn btn-light rounded-pill py-2 px-4"
-                                    href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
                     <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item bg-light rounded p-4" style="height: 380px;">
-                            {{-- <div class="service-img text-center"
-                            style="height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <!-- Circle background -->
-                            <div class="circle-background"
-                                style="position: absolute; width: 100px; height: 100px; background-color:
-                                 rgba(255, 0, 0, 0.2); border-radius: 50%; top: 50%; left: 50%; transform: 
-                                 translate(-50%, -50%); z-index: 1;">
-                            </div>
-                            <i class='fas fa-globe text-dark' style='font-size:60px; z-index: 2;'></i>
-                            <img src="{{ asset('storage/' . $services->image) }}"  style='font-size:60px; z-index: 2;'>
-                        </div> --}}
-
+                        <div class="service-item bg-light rounded p-4">
                             <div class="service-img text-center"
                                 style="height: 120px; display: flex; align-items: center; justify-content: center; position: relative;">
                                 <!-- Circle background -->
@@ -253,7 +228,7 @@
                                 </div>
                                 {{-- Icon with fixed size and centered position --}}
                                 <img src="{{ asset('storage/' . $services->image) }}"
-                                style="width: 60px; height: 60px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+                                    style="width: 60px; height: 60px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
                                 {{-- <img src="{{ asset('storage/' . $services->image) }}"
                                     style="width: 60px; height: 60px; filter: brightness(0) saturate(100%) invert(30%);"> --}}
                             </div>
@@ -261,9 +236,11 @@
                                 <div class="service-content-inner">
                                     <a href="#" class="h4 d-inline-flex text-dark">
                                         {{ $services->heading }}</a>
-                                    <p class="" style="margin-top: -10px">
-                                        {!! Str::limit(html_entity_decode($services->description), 100) !!}
+                                    <p>
+                                        {!! Str::limit(strip_tags($services->description), 100) !!}
+                                        {{-- {!! html_entity_decode(Str::limit($services->description, 100)) !!} --}}
                                     </p>
+
 
                                     <a class="btn btn-light rounded-pill py-2 px-4"
                                         href="{{ route('frontend.service', ['id' => $services->id]) }}">Read More</a>
@@ -272,69 +249,6 @@
                         </div>
                     </div>
                 @endforeach
-                {{-- </div> --}}
-
-                {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item bg-light rounded">
-                    <div class="service-img">
-                        <img src="{{ 'frontend/img/services/mobile.jpg' }}" style="height: 180px"
-                            class="img-fluid w-100 rounded-top" alt="">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="service-content-inner">
-                            <a href="#" class="h4 mb-4 d-inline-flex text-danger">Mobile
-                                    Applications</a>
-                            <p class="mb-4">A mobile app (or mobile application) is a software application developed
-                                specifically for use on small, wireless computer devices, such as smartphones and
-                                tablets.
-                            </p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item bg-light rounded">
-                    <div class="service-img">
-                        <img src="{{ 'frontend/img/services/webdesgin1.jpg' }}" style="height: 180px"
-                            class="img-fluid w-100 rounded-top" alt="">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="service-content-inner">
-                            <a href="#" class="h4 mb-4 d-inline-flex text-danger"> Website
-                                    Designing</a>
-                            <p class="mb-4">Website designing, also known as web design, is the process of creating
-                                and building a website that is visually appealing, user-friendly, and provides a good
-                                user experience.
-                            </p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="service-item bg-light rounded">
-                    <div class="service-img">
-                        <img src="{{ 'frontend/img/services/digital.jpg' }}" style="height: 180px"
-                            class="img-fluid w-100 rounded-top" alt="">
-                    </div>
-                    <div class="service-content text-center p-4">
-                        <div class="service-content-inner">
-                            <a href="#" class="h4 mb-4 d-inline-flex text-danger"> Digital
-                                    Marketing</a>
-                            <p class="mb-4">Digital marketing typically refers to online marketing campaigns that
-                                appear on a computer, phone, tablet, . It can take many forms, including
-                                online video,  search engine marketing.
-                            </p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-                {{-- <div class="col-12">
-                <a class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s"
-                    href="#">Services More</a>
-            </div> --}}
             </div>
         </div>
     </div>
@@ -461,29 +375,29 @@
                                 </div>
                             </div>
                             <!-- <div class="col-sm-4">
-                                            <div class=" rounded p-4">
-                                                <div class="w-100 p-4 d-flex align-items-center justify-content-center">
-                                                    <h4 class="mb-0  text-danger">Years Of Experience</h4>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-center">
-                                                    <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">21</span></h2>
-                                                  
-                                                </div>
+                                                                                                                                                <div class=" rounded p-4">
+                                                                                                                                                    <div class="w-100 p-4 d-flex align-items-center justify-content-center">
+                                                                                                                                                        <h4 class="mb-0  text-danger">Years Of Experience</h4>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                                                                                                        <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">21</span></h2>
+                                                                                                                                                      
+                                                                                                                                                    </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class=" rounded p-4">
-                                                <div class="w-100 p-4 d-flex align-items-center justify-content-center">
-                                                    <h4 class="text-danger mb-0">Team Members</h4>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-center">
-                                                    <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">97</span></h2>
-                                                  
-                                                </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div class="col-sm-4">
+                                                                                                                                                <div class=" rounded p-4">
+                                                                                                                                                    <div class="w-100 p-4 d-flex align-items-center justify-content-center">
+                                                                                                                                                        <h4 class="text-danger mb-0">Team Members</h4>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                                                                                                        <h2><span class="counter-value fs-1  text-dark" data-toggle="counter-up">97</span></h2>
+                                                                                                                                                      
+                                                                                                                                                    </div>
 
-                                            </div>
-                                        </div> -->
+                                                                                                                                                </div>
+                                                                                                                                            </div> -->
                         @endforeach
                     </div>
                 </div>
